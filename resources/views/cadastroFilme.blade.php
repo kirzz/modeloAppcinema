@@ -1,6 +1,6 @@
-@extemds('padrao')
+@extends('padrao')
 
-@section('content')
+@section('content') 
 
 <form>
             <div class="mb-3 form-check">
