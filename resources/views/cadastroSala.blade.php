@@ -4,24 +4,17 @@
 
 <form>
             <div class="mb-3 form-check">
-                <label for="nrSalaInput" class="form-label">Número da Sala:</label>
-                <input type="text" class="form-control" id="nrSalaInput" >
+                <label for="salaInput" class="form-label">Sala:</label>
+                <input type="text" class="form-control" id="salainput" >
             </div>
+
             <div class="mb-3 form-check">
-                <label for="qtdePoltronasInput" class="form-label">Quantidade de Poltronas:</label>
-                <input type="text" class="form-control" id="qtdePoltronasInput">
+                <label for="poltronaInput" class="form-label">Poltrona:</label>
+                <input type="text" class="form-control" placeholder="de 1 a 100" id="poltronaInput">
             </div>
-            <div class="mb-3 form-check">
-                <label for="filmeSalaInput" class="form-label">Filme que está passando nesta sala:</label>
-                <input type="text" class="form-control" id="filmeSalaInput" >
-            </div>
-            <div class="mb-3 form-check">
-                <label for="sessaoInput" class="form-label">Horário da Sessão:</label>
-                <input type="text" class="form-control" id="sessaoInput" >
-              </div>
+
+
             <button type="submit" class="btn btn-primary">Salvar</button>
         </form>
 
-
-
-@endsection 
+@endsection
