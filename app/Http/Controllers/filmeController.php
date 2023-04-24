@@ -1,41 +1,35 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Http\Request;
-use App\Models\cadastroFilmeModel;
+use App\Models\Filme;
 
 class filmeController extends Controller
 {
-    //Construimos o CRUD aqui.
+    //construimos o CRUD aqui
 
     public function buscaCadastroFilme(){
-
         return View('cadastroFilme');
     }
 
-    public function cadastrarFilme(Request $request)
-    {
-        $dadosFilme = $request->validate(
-        [
-            'nome_filme' =>'string|required',
-            'atores_filme' =>'string|required',
-            'datalancamento_filme' => 'string|required',
-            'sinopse_filme' => 'string|required',
-            'capa_filme' => 'file|required'
+    public function cadastrarFilme(Request $request){
+        $dadosFilme = $request->validate([
+            'nomefilme' => 'string|required',
+            'atoresfilme' => 'string|required',
+            'datalancamentofilme' => 'string|required',
+            'sinopsefilme' => 'string|required',
+            'capafilme' => 'file|required'
         ]);
-    //dd($dadosFilme);
+       // dd($dadosFilme);
 
-    $file = $dadosFilme['capa_filme'];
-    $path = $file->store('capa', 'public');
-    $dadosFilme['capa_filme'] = $path;
+        $file = $dadosFilme['capafilme'];
+        $path = $file->store('capa','public');
+        $dadosFilme['capafilme'] = $path;
+        
+        Filme::create($dadosFilme);
 
-
-    cadastroFilmeModel::create($dadosFilme);
-        //return Redirect::route('cadastro-filme');
-
+        //return Redirect::route('/home');
     }
 
 }
-

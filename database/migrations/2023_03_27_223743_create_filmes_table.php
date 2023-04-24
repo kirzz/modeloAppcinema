@@ -11,12 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('agenda', function (Blueprint $table) {
+        Schema::create('filmes', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->string('compromisso');
-            $table->string('descricao');
-            $table->date('datainicio');
+            $table->string('nomefilme');
+            $table->string('atoresfilme');
+            $table->longText('sinopsefilme');
+            $table->date('datalancamentofilme');
+            $table->string('capafilme');
         });
     }
 
@@ -25,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('agenda');
+        Schema::dropIfExists('filmes');
     }
 };

@@ -1,6 +1,9 @@
-@extendes('padrao')
+@extends('padrao')
 
 @section('content')
+
+
+
 
 
 @endsection

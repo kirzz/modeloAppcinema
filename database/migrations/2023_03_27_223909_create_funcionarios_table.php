@@ -11,16 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        //No create ele cria a tabela cadastro_filme_models.
-        Schema::create('cadastro_filme_models', function (Blueprint $table) {
+        Schema::create('funcionarios', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->string('nome_filme');
-            $table->longText('atores_filme');
-            $table->date('datalancamento_filme');
-            $table->string('sinopse_filme');
-            $table->string('capa_filme');
-
+            $table->string('emailfun');
+            $table->string('nomefun');
+            $table->string('senhafun');
+            $table->string('whatsappfun');
+            $table->string('cpffun');
         });
     }
 
@@ -29,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('filmes');
+        Schema::dropIfExists('funcionarios');
     }
 };
