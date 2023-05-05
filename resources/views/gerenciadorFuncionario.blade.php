@@ -30,7 +30,7 @@
       <td>{{$dadosfuncionarios->emailfun}}</td>
       <td><a href="{{route('mostrar-funcionario',$dadosfuncionarios->id)}}">Alterar</a></td>
       <td>
-        <form method="post" action="{{route('apagar-funcionario',$dadosfuncionario->id)}}">
+        <form method="post" action="{{route('apagar-funcionario',$dadosfuncionarios->id)}}">
           @method('delete')
           @csrf
           <button type="submit" class="btn btn-danger"> Excluir </button>
