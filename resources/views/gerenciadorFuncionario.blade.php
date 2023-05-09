@@ -28,15 +28,31 @@
       <th scope="row">{{$dadosfuncionarios->id}}</th>
       <td>{{$dadosfuncionarios->nomefun}}</td>
       <td>{{$dadosfuncionarios->emailfun}}</td>
-      <td><a href="{{route('mostrar-funcionario',$dadosfuncionarios->id)}}">Alterar</a></td>
+      <td>  
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalAlterarFun-{{$dadosfuncionarios->id}}">
+          Alterar
+        </button>
+
+@include('modal.funcionarioAlterar')
+
+    
+    </td>
       <td>
-        <form method="post" action="{{route('apagar-funcionario',$dadosfuncionarios->id)}}">
-          @method('delete')
-          @csrf
-          <button type="submit" class="btn btn-danger"> Excluir </button>
-        </form>
+
+      <!-- Button trigger modal -->
+        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalDeleteFun-{{$dadosfuncionarios->id}}">
+          Excluir
+        </button>
+
+@include('modal.funcionarioDeletar')
+
+
+
       </td>  
 
+
+ 
     </tr>
    @endforeach
   </tbody>
