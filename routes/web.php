@@ -3,6 +3,9 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\filmeController;
 use App\Http\Controllers\funcionarioController;
+use App\Http\Controllers\poltronaController;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -27,6 +30,17 @@ Route::delete('/gerenciar-filme/{registrosFilme}',[filmeController::class,'Apaga
 
 Route::get('/alterar-filme/{registroFilme}',[filmeController::class,'MostrarRegistrosFilme'])->name('mostrar-filme');
 Route::put('/gerenciar-filme/{registroFilme}',[filmeController::class,'AlterarBancoFilme'])->name('alterar-banco-filme');
+
+
+
+Route::get('/cadastro-poltrona',[poltronaController::class,'buscarCadastroPoltrona'])->name('buscar-cadastro-poltrona');
+Route::post('/cadastro-poltrona',[poltronaController::class,'cadastrarPoltrona'])->name('cadastro-poltrona');
+Route::get('/gerenciar-poltrona',[poltronaController::class,'MostrarGerenciadorPoltrona'])->name('gerenciar-poltrona');
+
+Route::delete('/gerenciar-poltrona/{registrosPoltrona}',[poltronaController::class,'ApagarPoltrona'])->name('apagar-poltrona');
+
+Route::get('/alterar-poltrona/{registroPoltrona}',[poltronaController::class,'MostrarRegistrosPoltrona'])->name('mostrar-poltrona');
+Route::put('/gerenciar-poltrona/{registroPoltrona}',[poltronaController::class,'AlterarBancoPoltrona'])->name('alterar-banco-poltrona');
 
 
 
