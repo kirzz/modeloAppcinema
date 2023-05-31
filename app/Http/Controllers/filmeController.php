@@ -29,49 +29,16 @@ class filmeController extends Controller
         
         Filme::create($dadosFilme);
 
-        return Redirect::route('home');
+        //return Redirect::route('/home');
     }
-    public function MostrarGerenciadorFilme(Request $request){
-        $dadosFilme = Filme::all();
-       // dd($dadosFilme);
-       
-        $dadosFilme = Filme::query();
-        $dadosFilme->when($request->nomefilme,function($query,$nomefilme ){
-            $query->where('nomefilme','like','%'.$nomefilme.'%');
-        }); 
+    public function exibirFilme(){
 
-        $dadosFilme = $dadosFilme->get();
+        $dadosfilme = Filme::query();
 
-        return view('gerenciadorFilme',['dadosfilme'=>$dadosFilme]);
-        
+        $dadosfilme = $dadosfilme->get();
+
+        return view('site/index',['dadosfilme'=>$dadosfilme]);
+     
     }
 
-    public function ApagarFilme(Filme  $registrosFilme){
-        $registrosFilme->delete(); 
-    
-        return redirect ::route('gerenciar-filme');
-         
-           
-     }
-    
-     public function MostrarRegistrosFilme(Filme $registrosFilme){
-        return view('xxx',['registrosFilme'=>$registrosFilme]);
-     }
-    
-     public function AlterarBancoFilme(Filme $registrosFilme, Request $request){
-    
-        $dadosFilme = $request->validate([
-            'nomefilme'=> 'string | required',
-            'atoresfilme'=> 'string | required',
-            'datalancamentofilme'=> 'string | required',
-            'sinopsefilme'=> 'string | required',
-            'capafilme'=> 'string | required'
-        ]); 
-    
-        $registrosFilme-fill($dadosFilme);
-        $registrosFilme->save();
-    
-        return redirect ::route('gerenciar-filme');
-    
-    }
 }
